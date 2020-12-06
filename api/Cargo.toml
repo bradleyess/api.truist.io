@@ -1,5 +1,5 @@
 [package]
-name = "payments"
+name = "api"
 version = "0.1.0"
 authors = ["Bradley Shawyer <21098019+bradleyess@users.noreply.github.com>"]
 edition = "2018"
@@ -9,7 +9,7 @@ path = "src/lib.rs"
 
 [[bin]]
 path = "src/main.rs"
-name = "app"
+name = "server"
 
 [dependencies]
 actix-web = "3.0.2"

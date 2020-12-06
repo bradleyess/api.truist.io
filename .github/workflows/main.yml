@@ -13,7 +13,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with: { profile: minimal, toolchain: stable, override: true }
       - uses: actions-rs/cargo@v1
-        with: { command: test }
+        with: { command: test, working-directory: ./api }
 
   fmt:
     name: Format
@@ -24,7 +24,7 @@ jobs:
         with: { profile: minimal, toolchain: stable, override: true }
       - run: rustup component add rustfmt
       - uses: actions-rs/cargo@v1
-        with: { command: fmt, args: --all -- --check }
+        with: { command: fmt, args: --all -- --check, working-directory: ./api  }
 
   clippy:
     name: Lint
@@ -35,7 +35,7 @@ jobs:
         with: { profile: minimal, toolchain: stable, override: true }
       - run: rustup component add clippy
       - uses: actions-rs/cargo@v1
-        with: { command: clippy, args: -- -D warnings }
+        with: { command: clippy, args: -- -D warnings, working-directory: ./api  }
 
   coverage:
     name: Code Coverage
@@ -48,4 +48,4 @@ jobs:
         with: { toolchain: stable, override: true }
       - name: Run cargo-tarpaulin
         uses: actions-rs/tarpaulin@v0.1
-        with: { args: '--ignore-tests' }
+        with: { args: '--ignore-tests', working-directory: ./api  }

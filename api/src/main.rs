@@ -1,4 +1,4 @@
-use payments::start_server;
+use api::start_server;
 
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
